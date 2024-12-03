@@ -1,0 +1,124 @@
+/* General */
+.header {
+    background: linear-gradient(90deg, #1e1e1e, #333333); /* Fondo degradado */
+    color: #fff; /* Texto blanco */
+    padding: 1rem 2rem;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3); /* Sombra moderna */
+    position: sticky; /* Fijo en la parte superior */
+    top: 0;
+    z-index: 1000;
+}
+
+.header__nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Asegura que el nombre y el menú estén en los extremos */
+    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+}
+
+/* Logo */
+.header__nombre {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 0.125rem; /* Usando rem en lugar de px */
+    color: #f0f0f0; /* Gris claro */
+    margin-right: auto; /* Alinea el nombre a la izquierda */
+}
+
+/* Menú */
+.header__menu {
+    list-style: none;
+    display: flex; /* Los elementos están en fila */
+    gap: 2rem; /* Espaciado entre los enlaces */
+    margin: 0;
+    padding: 0;
+}
+
+.header__item {
+    position: relative;
+}
+
+.header__link {
+    text-decoration: none;
+    color: #e0e0e0; /* Gris claro */
+    font-weight: 500;
+    padding: 0.5rem 0;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.header__link:hover {
+    color: #ffffff; /* Blanco al pasar el ratón */
+    transform: scale(1.1); /* Efecto de aumento */
+}
+
+/* Indicador en hover */
+.header__link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #ffffff; /* Subrayado blanco */
+    transition: width 0.3s ease;
+}
+
+.header__link:hover::after {
+    width: 100%;
+}
+
+/* Icono de hamburguesa */
+.header__hamburguesa {
+    display: none; /* Ocultamos el icono en pantallas grandes */
+  }
+  
+.iconohamburguesa {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.iconohamburguesa::before,
+.iconohamburguesa::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.iconohamburguesa::before {
+    top: -8px;
+}
+
+.iconohamburguesa::after {
+    bottom: -8px;
+}
+
+.header__menu--open {
+    display: block; /* Muestra el menú cuando el estado es 'abierto' */
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+    .header__menu {
+        display: none; /* Ocultamos el menú por defecto en pantallas pequeñas */
+        flex-direction: column; /* Cambia a vertical */
+        align-items: flex-start; /* Alinea a la izquierda */
+        gap: 1rem; /* Espaciado mayor */
+        width: 100%; /* Asegura que el menú ocupe el 100% del ancho */
+        padding: 1rem 0;
+        position: absolute;
+        top: 60px; /* Ajusta la posición según sea necesario */
+        left: 0;
+        background-color: #333;
+    }
+
+    .header__hamburguesa {
+        display: block; /* Muestra el icono en pantallas pequeñas */
+        cursor: pointer;
+    }
+}
