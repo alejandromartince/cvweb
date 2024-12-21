@@ -47,7 +47,7 @@
 }
 
 .header__link:hover {
-    color: #ffffff; /* Blanco al pasar el ratón */
+    color: #00c0a0; /* Blanco al pasar el ratón */
     transform: scale(1.1); /* Efecto de aumento */
 }
 
@@ -59,11 +59,17 @@
     left: 0;
     width: 0;
     height: 2px;
-    background: #ffffff; /* Subrayado blanco */
+    background: #00c0a0; /* Subrayado blanco */
     transition: width 0.3s ease;
 }
 
 .header__link:hover::after {
     width: 100%;
+}
+
+/* Div del icono de la hamburguesa */
+.iconohamburguesa{
+    cursor: pointer;
+    margin-top: 0.4rem;
 }
 

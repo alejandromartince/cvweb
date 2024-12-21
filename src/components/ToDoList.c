@@ -1,0 +1,1 @@
+//Color del estilo de la páginas = "00c0a0"
