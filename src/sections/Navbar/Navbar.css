@@ -1,0 +1,188 @@
+/* General styles for navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: var(--fondo-negro);
+}
+
+/* Navbar container */
+.navbar__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* Navbar language-switcher */
+.language-switcher {
+  width: fit-content;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--blanco); /* color white or your custom variable */
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.language-switcher:hover {
+  transform: scale(1.1);
+}
+
+/* Navbar links styling */
+.nav__list,
+.nav__mobile .nav__list {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+  padding: 0;
+  margin: 0;
+}
+
+/* Individual navbar link items */
+.nav__item {
+  background-color: transparent;
+}
+
+/* Styling for the navbar links */
+.nav__link {
+  position: relative;
+  display: inline-block; /* Important for height and transformations */
+  text-decoration: none;
+  color: var(--blanco-pobre);  /* Definir el color para que no cambie al negro */
+  font-size: 1rem;
+  transition: color 0.3s ease;  /* Smooth transition for color and scale */
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.nav__link:hover {
+  color: var(--blanco);  /* Color on hover */
+}
+
+/* Line under the link that appears on hover */
+.nav__link:after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--blanco);  /* Subrayado de color */
+  transition: width 0.3s ease;  /* Line grows smoothly on hover */
+}
+
+.nav__link:hover:after {
+  width: 100%;  /* Expande la línea hasta cubrir todo el ancho del enlace */
+}
+
+/* Navbar toggle button (for mobile) */
+.navbar__toggle {
+  display: none;
+  cursor: pointer;
+}
+
+/* Icono del menú (hamburguesa) */
+.navbar__icon-burger {
+  font-size: 1.5rem;
+  color: var(--blanco);
+  transition: filter 0.3s ease, color 0.3s ease; /* Transición suave */
+  background-color: transparent; /* Asegúrate de mantener el fondo transparente */
+}
+
+.navbar__icon-burger:hover {
+  filter: drop-shadow(0px 2px 10px rgb(255, 255, 255)); /* Sombra más intensa */
+}
+
+/* Icono del menú (cruz) */
+.navbar__icon-cruz {
+  font-size: 1.7rem;
+  color: var(--blanco);
+  transition: filter 0.3s ease, color 0.3s ease; /* Transición suave */
+  background-color: transparent; /* Asegúrate de mantener el fondo transparente */
+}
+
+.navbar__icon-cruz:hover {
+  filter: drop-shadow(0px 2px 10px rgb(255, 255, 255)); /* Sombra más intensa */
+}
+
+
+
+/* ----------------------------- 
+Mobile menu (hidden and shown on toggle) 
+------------------------------ */
+
+/* Menú de navegación en versión móvil */
+.navbar__mobile {
+  display: none;
+  width: 100%;
+  height: max-content;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  transition: display 0.3s ease;
+}
+
+/* Clase que se agrega para hacer visible el menú móvil */
+.navbar__mobile--open {
+  display: flex;
+}
+
+/* -----------------------------
+Media Queries (para pantallas pequeñas)
+------------------------------ */
+
+@media (max-width: 1024px) {
+  .navbar__desktop {
+    display: none;
+  }
+
+  .navbar__container {
+    width: 100%;
+  }
+
+  /* Estilización del menú móvil */
+  .nav__list {
+    flex-direction: column;
+    width: 100%;
+    gap: 2rem;
+    padding: 1rem 0 1rem 3rem;
+    background-color: var(--fondo-negro-pobre);
+  }
+
+  /* Mostrar el ícono de toggle (hamburguesa) en pantallas pequeñas */
+  .navbar__toggle {
+    display: flex;
+  }
+
+  /* El menú móvil está oculto por defecto */
+  .navbar__mobile {
+    display: none;
+  }
+
+  /* Mostrar el menú móvil cuando se active la clase .navbar__mobile--open */
+  .navbar__mobile--open {
+    display: flex; 
+  }
+
+  .nav__link:after {
+    display: none;
+  }
+}
+
+/* Estilos específicos para pantallas grandes */
+@media (min-width: 1024px) {
+  /* Ocultar el menú móvil en pantallas grandes */
+  .navbar__mobile {
+    display: none;
+  }
+}
+

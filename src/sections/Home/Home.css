@@ -1,0 +1,131 @@
+/* Sección principal */
+.home-section {
+  padding-top: 6rem;
+  padding-bottom: 2rem; /* Espaciado inferior para evitar que el botón quede oculto */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--blanco);
+  min-height: 100vh; /* Garantiza que la sección ocupe al menos toda la pantalla */
+  box-sizing: border-box;
+}
+
+/* Bienvenida */
+.bienvenida {
+  font-size: 2rem;
+  margin: 0; /* Elimina márgenes innecesarios */
+  text-align: center;
+}
+
+.minombre {
+  color: var(--verde-claro);
+}
+
+/* Icono de la mano saludando */
+.waving-emoji {
+  display: inline-block;
+  transform-origin: 70% 70%;
+  animation: wave 2s infinite;
+}
+
+
+
+/* Efecto de máquina de escribir */
+.typewriter-effect {
+  font-family: "Courier New", Courier, monospace;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  color: var(--blanco);
+}
+
+/* archivo CSS */
+.typewriter-cursor {
+  color: white;
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+
+/* Contenedor de objetos 3D */
+.espacio-objetos {
+  width: 100%;
+  height: 75vh; /* Ajusta el espacio reservado para el canvas */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem; /* Espaciado entre el canvas y el botón */
+  box-sizing: border-box;
+}
+
+.canvas {
+  width: 100%;
+  height: 90%;
+  outline: none; /* Asegura que el canvas se ajuste al contenedor */
+}
+
+/* Botón */
+.boton {
+  text-align: center;
+}
+
+.boton a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.boton button {
+  background-color: var(--azul-light);
+  color: var(--blanco);
+  border: none;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+.boton button:hover {
+  background-color: var(--azul-oscuro);
+}
+
+@media (max-width: 768px) {
+  .home-section {
+    width: 40rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra los elementos en el eje horizontal */
+    justify-content: center; /* Centra los elementos en el eje vertical */
+  }
+
+  .espacio-objetos {
+    width: max-content; /* Deja que ocupe todo el ancho de la ventana */
+  }
+}
+
+
+/* Animación del emoji 👋 */
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(15deg);
+  }
+  30% {
+    transform: rotate(-10deg);
+  }
+  45% {
+    transform: rotate(10deg);
+  }
+  60% {
+    transform: rotate(-5deg);
+  }
+  75% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

@@ -1,0 +1,199 @@
+/*=============================
+  CONTENEDOR PRINCIPAL
+=============================*/
+
+.about-container {
+  margin: 0; /* Elimina los márgenes externos */
+  padding: 0;
+  box-sizing: border-box; /* Asegura que padding y border no afecten el tamaño total */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+}
+
+/*=============================
+  GRID PRINCIPAL
+=============================*/
+.grid-container {
+  display: grid;
+  gap: 1.5rem; /* Espaciado entre los elementos */
+  padding: 2rem;
+  grid-template-areas: 
+    "grid-contacto grid-desarrollador grid-mundo" 
+    "grid-tecnologias grid-tecnologias grid-mundo" 
+    "grid-tecnologias grid-tecnologias grid-copiar";
+  grid-template-rows: 2fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+  height: auto;
+  width: 80%; /* Ancho del grid */
+  color: white;
+}
+
+/* Asignamos nombres a las areas */
+#grid-contacto { grid-area: grid-contacto; }
+#grid-desarrollador { grid-area: grid-desarrollador; }
+#grid-mundo { grid-area: grid-mundo; }
+#grid-tecnologias { grid-area: grid-tecnologias; }
+#grid-copiar { grid-area: grid-copiar; }
+
+
+/* Estilos de las tarjetas individuales */
+.contact-card,
+.developer-card,
+.globe-card,
+.react-card,
+.copy-card {
+  background-color: var(--fondo-negro-claro);
+  border-radius: 8px;
+  padding: 1rem;
+  text-align: center;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  place-items: center;
+  font-size: 3em;
+  font-weight: bold;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.contact-card:hover,
+.developer-card:hover,
+.globe-card:hover,
+.react-card:hover,
+.copy-card:hover {
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.226);
+}
+
+/*=============================
+  CV
+=============================*/
+.enlace_cv {
+  text-decoration: none;
+  color: var(--verde-claro);
+}
+
+.enlace_cv:hover {
+  text-decoration: underline;
+}
+
+/*=============================
+  GLOBO MUNDO
+=============================*/
+.globe-container {
+  display: flex;
+  justify-content: center;
+  cursor: grab;
+}
+
+.globe-container:active {
+  cursor: grabbing;
+}
+
+/* Estilo para las imágenes dentro del grid */
+.image {
+  max-width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  width: 4rem;
+}
+
+.image-avatar {
+  width: 50%;
+  padding-bottom: 1rem;
+}
+
+.small-image {
+  width: 7.875rem;
+  height: 7.875rem;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+
+/*=============================
+  ENCABEZADOS
+=============================*/
+.grid-headtext {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.grid-subtext {
+  font-size: 1rem;
+  color: var(--blanco-oscuro);
+  margin-top: 0.5rem;
+}
+
+
+/* Estilo del botón de contacto */
+.contact-button {
+  margin-top: 1rem; /* Añade un margen superior de 1rem para el botón */
+  display: inline-block; /* Hace que el botón sea en línea pero con propiedades de bloque */
+}
+
+
+/* TECNOLOGIAS USADAS */
+.tecnologias {
+  display: flex;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.icono-tecnologia {
+  margin: 0.5rem;
+}
+
+/* Estilo de la caja de copiar (aseguramos que no cambie de tamaño) */
+.copy-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  cursor: pointer;
+  width: 100%; /* Asegura que ocupe todo el ancho del contenedor padre */
+  padding: 0.5rem; /* Un poco de padding para que haya espacio alrededor del contenido */
+  box-sizing: border-box; /* Asegura que el padding y el borde estén dentro del tamaño total */
+  height: 7.875rem; /* Altura fija en rem */
+  overflow: hidden; /* Si el contenido se desborda, se oculta para evitar distorsiones */
+  border-radius: 0.5rem; /* Bordes redondeados */
+  height: fit-content;
+}
+
+/* Establecemos un tamaño fijo para las imágenes de los iconos en rem */
+.copy-box img {
+  width: 1.5rem; /* Tamaño fijo en rem para las imágenes */
+  height: 1.5rem; /* Tamaño fijo en rem para las imágenes */
+}
+
+/* El texto de copiar */
+.copy-email {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gris-claro);
+  text-align: center;
+  overflow: hidden; /* Evita desbordamiento de texto en caso de cambios */
+  transition: color 0.5s ease;
+}
+
+.copy-email:hover {
+  color: var(--blanco);
+}
+
+
+.image-small-image {
+  width: 8rem;
+}
+
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr; /* En pantallas más pequeñas (móviles), la grid tendrá 1 columna */
+  }
+
+  .copy-box {
+    max-width: 15rem; /* Limité el tamaño de la caja en dispositivos más pequeños */
+  }
+
+  /* Ajustes específicos para el tamaño de las tarjetas móviles */
+  .react-card {
+    grid-column: span 1; /* En dispositivos pequeños, la react-card ocupa 1 columna */
+  }
+}

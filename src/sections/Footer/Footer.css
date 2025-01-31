@@ -1,0 +1,28 @@
+.footer-container {
+    background-color: #1a1a1a; /* Color de fondo negro */
+    color: #fff; /* Texto en blanco */
+    padding: 2rem 1rem;
+    text-align: center;
+    border-top: 1px solid #333; /* Línea superior en gris oscuro */
+  }
+  
+  .footer-content {
+    max-width: 1200px;
+    margin: 0 auto; /* Centra el contenido */
+  }
+  
+  .footer-text {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: #fff;
+  }
+  
+ 
+  
+  @media (max-width: 768px) {
+    .footer-links {
+      flex-direction: column; /* Los enlaces se apilan en pantallas pequeñas */
+      gap: 0.8rem;
+    }
+  }
+  

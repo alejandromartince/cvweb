@@ -1,0 +1,228 @@
+import { useIdioma } from "../../contexts/idioma-context";
+import Button from "../../components/Button";
+import { useState, useEffect, useRef } from "react";
+import { Link } from "react-scroll";
+import { Canvas } from "@react-three/fiber";
+import {
+  FaReact,
+  FaHtml5,
+  FaCss3Alt,
+  FaJs,
+  FaPhp,
+  FaLinux,
+  FaDocker,
+  FaJava,
+} from "react-icons/fa";
+import { SiMysql } from "react-icons/si";
+import "./About.css";
+import CV from "../../components/mostrar_cv";
+import Globe from "react-globe.gl";
+const About = () => {
+  const { language } = useIdioma();
+  const [hasCopied, setHasCopied] = useState(false);
+  const globeRef = useRef();
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("alejandromartin@alejandromartince.com");
+    setHasCopied(true);
+    setTimeout(() => {
+      setHasCopied(false);
+    }, 2000);
+  };
+
+  useEffect(() => {
+    if (globeRef.current) {
+      globeRef.current.pointOfView(
+        { lat: 40.4637, lng: -3.7492, altitude: 2 }, // España
+        1000 // Tiempo de animación en ms
+      );
+    }
+  }, []);
+
+  return (
+    <section className="about-container" id="about">
+      <div className="grid-container">
+        <div className="contact-card" id="grid-contacto">
+          <img
+            src="../assets/Extras/avatar.png"
+            alt="Contact"
+            className="image-avatar"
+          />
+
+          <div className="text-container">
+            <p className="grid-headtext">
+              {language === "es"
+                ? "Ingeniero Informático"
+                : "Computer Engineer"}
+            </p>
+            <p className="grid-subtext">
+              {language === "es"
+                ? "Me considero una persona organizada, autodidacta y disciplinada con ganas de iniciar nuevos proyectos. "
+                : "I consider myself an organized, self-taught and disciplined person with a desire to start new projects."}
+            </p>
+          </div>
+        </div>
+        <div className="developer-card" id="grid-desarrollador">
+          <a
+            href={
+              language === "es" ? "../assets/CV_es.pdf" : "../assets/CV_en.pdf"
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cv"
+          >
+            <CV />
+          </a>
+          <div>
+            <p className="grid-headtext">{language === "es" ? "CV" : "CV"}</p>
+            <p className="grid-subtext">
+              {language === "es" ? (
+                <>
+                  Haz click{" "}
+                  <a
+                    href="/assets/CV_es.pdf"
+                    download="CV_es.pdf"
+                    className="enlace_cv"
+                  >
+                    aquí
+                  </a>{" "}
+                  para descargar mi CV o clica en la imagen para verlo.
+                </>
+              ) : (
+                <>
+                  Click{" "}
+                  <a
+                    href="/assets/CV_en.pdf"
+                    download="CV_en.pdf"
+                    className="enlace_cv"
+                  >
+                    here
+                  </a>{" "}
+                  to download my CV or click on the image to view it.
+                </>
+              )}
+            </p>
+          </div>
+        </div>
+        <div className="globe-card" id="grid-mundo">
+          <div className="globe-container">
+            <Globe
+              ref={globeRef} // Pasa `ref` aquí para la manipulación
+              height={350}
+              width={350}
+              backgroundColor="rgba(0, 0, 0, 0)"
+              showAtmosphere
+              globeImageUrl="../assets/Extras/mundo.jpg"
+              bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
+            />
+          </div>
+          <div>
+            <p className="grid-headtext">
+              {language === "es"
+                ? "Puedo trabajar en remoto"
+                : "I can work remotely"}
+            </p>
+            <p className="grid-subtext">
+              {language === "es"
+                ? "Vivo en Málaga, España, pero puedo trabajar desde cualquier parte del mundo."
+                : "I live in Malaga, Spain, but I can work from anywhere in the world."}
+            </p>
+
+            <Link
+              to="contact" // El ID del destino
+              spy={true}
+              smooth={true}
+              duration={650}
+              offset={-50}
+            >
+              <Button
+                name={
+                  language === "es" ? "¡Conocer más!" : "Know more about me!"
+                }
+                containerClass="custom-class"
+              />
+            </Link>
+          </div>
+        </div>
+
+        <div className="react-card" id="grid-tecnologias">
+          <div className="titulo-tecnologia">
+            <p className="grid-headtext">
+              {language === "es"
+                ? "Conocimientos y Habilidades"
+                : "Knowledge and Skills"}
+            </p>
+            <p className="grid-subtext">
+              {language === "es"
+                ? "He aprendido a desarrollar sitios web tanto por mi cuenta como con instituciones como la Universidad de Málaga."
+                : "I have learned to develop websites both by myself and with institutions such as the University of Malaga."}
+            </p>
+          </div>
+          <div className="tecnologias">
+            <div className="tecnologias-front">
+              <div>
+                <p className="grid-headtext">Front-end</p>
+              </div>
+              <FaReact
+                style={{ color: "#61dafb" }}
+                className="icono-tecnologia"
+              />
+              <FaCss3Alt
+                style={{ color: "rgb(32, 128, 255)" }}
+                className="icono-tecnologia"
+              />
+              <FaHtml5 style={{ color: "red" }} className="icono-tecnologia" />
+              <FaJs style={{ color: "yellow" }} className="icono-tecnologia" />
+            </div>
+            <div className="tecnologias-back">
+              <div>
+                <p className="grid-headtext">Back-end</p>
+              </div>
+              <SiMysql className="icono-tecnologia" style={{ color: "#0db7ed" }} />
+              <FaPhp
+                style={{ color: "rgb(113, 74, 145)" }}
+                className="icono-tecnologia"
+              />
+            </div>
+            <div className="otras-tecnologias">
+              <div>
+                <p className="grid-headtext">
+                  {language === "es" ? "Conocimientos en" : "Knowledge of"}
+                </p>
+              </div>
+              <FaLinux style={{ color: "black" }} className="icono-tecnologia"/>
+              <FaDocker style={{ color: "#0db7ed" }} className="icono-tecnologia"/>
+              <FaJava  style={{ color: "red" }} className="icono-tecnologia"/>
+            </div>
+          </div>
+        </div>
+
+        <div className="copy-card" id="grid-copiar">
+          <img
+            src="/assets/Extras/email.png"
+            alt="Contact"
+            className="image-small-image"
+          />
+          <div className="spaced-items">
+            <p className="grid-headtext" style={{ paddingTop: "1rem" }}>
+              Email
+            </p>
+            <div className="copy-box" onClick={handleCopy}>
+              <img
+                src={
+                  hasCopied
+                    ? "../assets/Extras/tick.svg"
+                    : "../assets/Extras/copy.svg"
+                }
+                alt="copy"
+              />
+              <p className="copy-email">alejandromartin@alejandromartince.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;

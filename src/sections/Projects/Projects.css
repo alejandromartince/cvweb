@@ -1,0 +1,210 @@
+/*=============================
+  SECCIÓN DE PROYECTOS
+=============================*/
+.projects-section {
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
+}
+
+/* Ajuste de padding en pantallas mayores a 640px */
+@media (min-width: 640px) {
+  .projects-section {
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+  }
+}
+
+/*=============================
+  ENCABEZADOS Y TEXTOS
+=============================*/
+.projects-head-text {
+  font-weight: 600;
+  color: var(--blanco);
+}
+
+.nombre-proyecto {
+  color: var(--verde-claro);
+}
+
+/* Ajuste del tamaño de fuente en pantallas mayores a 640px */
+@media (min-width: 640px) {
+  .projects-head-text {
+    font-size: 2.25rem;
+  }
+}
+
+/*=============================
+  GRID DE PROYECTOS
+=============================*/
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 3rem;
+}
+
+/* Configuración para pantallas mayores a 1024px */
+@media (min-width: 1024px) {
+  .projects-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/*=============================
+  TARJETAS DE PROYECTOS
+=============================*/
+.project-card {
+  position: relative;
+  padding: 2.5rem 1.25rem;
+  background: rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+}
+
+/* Imagen de fondo en la tarjeta */
+.project-image-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -1;
+}
+
+.project-image {
+  width: 100%;
+  height: 24rem;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+/*=============================
+  LOGOTIPO DEL PROYECTO
+=============================*/
+.project-logo-wrapper {
+  backdrop-filter: blur(12px);
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+}
+
+.project-logo {
+  height: 4rem;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/*=============================
+  DETALLES DEL PROYECTO
+=============================*/
+.project-details {
+  color: var(--gris-claro);
+  margin-top: 1.25rem;
+  height: 10rem;
+}
+
+.project-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: white;
+}
+
+.project-description,
+.project-subdescription {
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/*=============================
+  ETIQUETAS Y TECNOLOGÍAS
+=============================*/
+.project-tags-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.imagen-tecnologia {
+  height: 3rem;
+}
+
+.project-tags {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/*=============================
+  ENLACE A PROYECTO EN VIVO
+=============================*/
+.project-live-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.project-live-link:hover {
+  color: white;
+}
+
+.link-icon {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+/*=============================
+  NAVEGACIÓN ENTRE PROYECTOS
+=============================*/
+.project-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1.75rem;
+}
+
+.arrow-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.75rem;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0.1) 10%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}
+
+.arrow-btn:active {
+  transform: scale(0.95);
+}
+
+.arrow-icon {
+  width: 1rem;
+  height: 1rem;
+}
+
+/*=====================================================================================================
+                                      PROYECTOS EN EL ORDENADOR
+=====================================================================================================*/
+
+.projects-aside{
+  border-color: var(--fondo-negro);
+  background-color: var(--fondo-negro-pobre);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem; 
+  height: 24rem;
+  cursor: grab;
+}
+
+.projects-aside:active{
+  cursor: grabbing;
+}
+
+@media (min-width: 768px) {
+  .projects-aside {  /* Cambié el nombre para que sea válido */
+    height: 100%;
+  }
+}

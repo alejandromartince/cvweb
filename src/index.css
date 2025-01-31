@@ -1,0 +1,49 @@
+/* Importar Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Paleta de Colores */
+:root{
+  --fondo-negro: #242424;
+  --fondo-negro-pobre: #272727;
+  --fondo-negro-claro: #3d3d3d;
+  --blanco:#ffffff;
+  --blanco-pobre: #dce1e9;
+  --blanco-oscuro: #c0c3ca;
+  --verde-principal: #1dd3b0;
+  --verde-secundario: #005a41de;
+  --verde-oscuro: #004d37;
+  --verde-muyoscuro: #003f2d;
+  --verde-claro: #31E981;
+  --rosa-light: #ff58ac;
+  --rosa-oscuro: #ff0080;
+  --azul-light: #0074c2;
+  --azul-oscuro: #004c99;
+  --azul-paleta:#22577a;
+  --gris-claro: #c0c0c0;
+  
+}
+
+/* Dispositivos */
+:root {
+  --mobile: 576px;  /* Móvil */
+  --tablet: 768px;  /* Tableta */
+  --desktop: 1024px; /* PC o pantallas grandes */
+}
+
+/* Z-Index */
+:root{
+  --z-fixed: 100;
+}
+
+/* Aplicar fuente bonita */
+body {
+  font-family: 'Poppins', sans-serif; /* Reemplaza "Poppins" por cualquier fuente que elijas */
+  background-color: var(--fondo-negro);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
