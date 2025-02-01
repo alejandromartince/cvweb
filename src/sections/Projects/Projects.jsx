@@ -152,30 +152,30 @@ const Projects = () => {
             <Center>
               <Suspense fallback={<CanvasLoader />}>
                 <group scale={1.7} position={[0, 0, 0]} rotation={[0, 0, 0]}>
-                  <Television texture = {currentProject.texture}
+                  {/* <Television texture = {currentProject.texture}
                     position={[0, -2, -0.5]}
                     rotation={[0, -1.6, 0]}
                     scale={1}
-                  />
+                  /> */}
                 </group>
               </Suspense>
             </Center>
 
             <Suspense fallback={<CanvasLoader />}>
-              <Table
+              {/* <Table
                 position={[TableposX, TableposY, TableposZ]}
                 rotation={[TablerotX, TablerotY, TablerotZ]}
                 scale={Tablescale}
-              />{" "}
+              />{" "} */}
 
-              <Mando position={[3, -2.1, 2]} rotation={[0, 0, 0]} scale={0.6} texture={currentProject.texture}/>
+              {/* <Mando position={[3, -2.1, 2]} rotation={[0, 0, 0]} scale={0.6} texture={currentProject.texture}/> */}
             </Suspense>
 
             <OrbitControls
               maxPolarAngle={Math.PI / 2}
               maxDistance={6}
               enablePan={false} 
-              enableZoom={true}
+              enableZoom={false}
               enableRotate={true}
             />
           </Canvas>
