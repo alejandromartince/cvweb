@@ -1,6 +1,4 @@
-import React, { Suspense, useState } from "react";
-import { Canvas } from "@react-three/fiber";
-import { Center, OrbitControls } from "@react-three/drei";
+import React, { useState } from "react";
 import {
   FaArrowRightLong,
   FaArrowLeftLong,
@@ -8,40 +6,18 @@ import {
 } from "react-icons/fa6";
 
 import { useIdioma } from "../../contexts/idioma-context";
-import { myProjects } from "../../constants";
-import {
-  useTableControls,
-  useSpotLightControls,
-} from "../../constants/levaControls";
+import { myProjects } from "../../constants/index.js";
 
-
-import CanvasLoader from "../../components/CanvasLoader.jsx";
-import Table from "../../components/Table.jsx";
-import Television from "../../components/TV.jsx";
-
+import EscenaProyecto from "../../components/EscenaProyecto.jsx";
 import "./Projects.css";
-import Mando from "../../components/Mando.jsx";
+
 
 const Projects = () => {
-  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0); // Index del proyecto seleccionado
-  const { language } = useIdioma(); // Obtener idioma
+  const [selectedProjectIndex, setSelectedProjectIndex] = useState(0);
+  const { language } = useIdioma();
 
   const projectCount = myProjects.length;
   const currentProject = myProjects[selectedProjectIndex];
-
-  const spotLightControls = useSpotLightControls(); // ✅ Obtiene valores de Leva
-  const tableControls = useTableControls();
-  const {
-    TableposX,
-    TableposY,
-    TableposZ,
-    TablerotX,
-    TablerotY,
-    TablerotZ,
-    Tablescale,
-  } = useTableControls("Table Controls", tableControls);
-
-  
 
   const handleNavigation = (direction) => {
     setSelectedProjectIndex((prevIndex) => {
@@ -109,7 +85,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p>{language === "es" ? "Ver Sitio Web" : "Check Live Site"}</p>
+              <p>{language === "es" ? "Ver Código" : "View Code"}</p>
               <FaArrowUpRightFromSquare color="var(--verde-claro)" />
             </a>
           </div>
@@ -130,55 +106,8 @@ const Projects = () => {
           </div>
         </div>
 
-        {/* 🎥 Sección con Canvas y modelos 3D */}
         <div className="projects-aside">
-          <Canvas shadows>
-            <ambientLight intensity={2} />
-            <directionalLight position={[10, 10, 5]} intensity={4} />
-
-            <spotLight
-              position={[
-                spotLightControls.SpotPosX,
-                spotLightControls.SpotPosY,
-                spotLightControls.SpotPosZ,
-              ]}
-              intensity={spotLightControls.SpotIntensity}
-              angle={spotLightControls.SpotAngle}
-              penumbra={spotLightControls.SpotPenumbra}
-              decay={spotLightControls.SpotDecay}
-              castShadow
-            />
-
-            <Center>
-              <Suspense fallback={<CanvasLoader />}>
-                <group scale={1.7} position={[0, 0, 0]} rotation={[0, 0, 0]}>
-                  {/* <Television texture = {currentProject.texture}
-                    position={[0, -2, -0.5]}
-                    rotation={[0, -1.6, 0]}
-                    scale={1}
-                  /> */}
-                </group>
-              </Suspense>
-            </Center>
-
-            <Suspense fallback={<CanvasLoader />}>
-              {/* <Table
-                position={[TableposX, TableposY, TableposZ]}
-                rotation={[TablerotX, TablerotY, TablerotZ]}
-                scale={Tablescale}
-              />{" "} */}
-
-              {/* <Mando position={[3, -2.1, 2]} rotation={[0, 0, 0]} scale={0.6} texture={currentProject.texture}/> */}
-            </Suspense>
-
-            <OrbitControls
-              maxPolarAngle={Math.PI / 2}
-              maxDistance={6}
-              enablePan={false} 
-              enableZoom={false}
-              enableRotate={true}
-            />
-          </Canvas>
+          <EscenaProyecto currentProject={currentProject.texture} />
         </div>
       </div>
     </section>

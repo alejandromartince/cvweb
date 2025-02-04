@@ -101,12 +101,14 @@ const Contact = () => {
         {/* Título y subtítulo del formulario */}
         <div className="contact-title-container">
           <h1 className="contact-title">
-            {language === "es" ? "¡Pongámonos en conctacto!" : "Let's have a conversation!"}
+            {language === "es"
+              ? "¡Pongámonos en conctacto!"
+              : "Let's have a conversation!"}
           </h1>
           <p className="contact-subtitle">
             {language === "es"
-              ? "No dude en escribirme si tiene alguna pregunta"
-              : "Don't hesitate to write me if you have any question"}
+              ? "¿Tienes dudas, curiosidad o quieres charlar sobre algún proyecto? Escríbeme cuando quieras, ¡estaré encantado de ayudarte!"
+              : "Do you have questions, curiosity, or just want to chat about a project? Write me whenever you want, I'll love to know about you!"}
           </p>
         </div>
 
@@ -159,8 +161,8 @@ const Contact = () => {
             rows={5}
             placeholder={
               language === "es"
-                ? "Me gustaría concretar una conversación sobre..."
-                : "I would like to have a conversation about..."
+                ? "Me gustaría tener una reunión contigo para comentarte que..."
+                : "I would like to have a meeting with you to talk about..."
             }
             className="input-message"
           />

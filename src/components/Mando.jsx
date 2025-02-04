@@ -1,19 +1,32 @@
-import React, { useRef, useEffect } from 'react'
-import { useGLTF } from '@react-three/drei'
-import gsap from 'gsap'
+import React, { useRef, useEffect } from 'react';
+import { useGLTF } from '@react-three/drei';
+import gsap from 'gsap';
 
-const Mando = (props) => {
-  const { nodes, materials } = useGLTF('/models/samsung_tv_remote_control.glb')
-  const mandoRef = useRef()
+const Mando = ({ currentProject, ...props }) => {
+  const { nodes, materials } = useGLTF('/models/samsung_tv_remote_control.glb');
+  const mandoRef = useRef();
 
   useEffect(() => {
-    if (props.texture) {
-      gsap.fromTo(mandoRef.current.position, 
-        { y: -2.1 }, 
-        { y: -1.5, duration: 0.5, yoyo: true, repeat: 1, ease: "power1.inOut" }
-      )
+    if (currentProject && mandoRef.current) {
+      const tl = gsap.timeline();
+
+      // Subir el mando
+      tl.to(mandoRef.current.position, {
+        y: mandoRef.current.position.y + 0.6,
+        duration: 0.4,
+        ease: 'power1.out',
+      });
+
+      // Regresar a la posición exacta X=1.55, Y=-0.8, Z=2.55
+      tl.to(mandoRef.current.position, {
+        x: 1.55,
+        y: -0.8,
+        z: 2.55,
+        duration: 0.4,
+        ease: 'power1.in',
+      });
     }
-  }, [props.texture])
+  }, [currentProject]); // Solo se ejecuta cuando currentProject cambia
 
   return (
     <group ref={mandoRef} {...props} dispose={null}>
@@ -37,8 +50,8 @@ const Mando = (props) => {
         </group>
       </group>
     </group>
-  )
-}
+  );
+};
 
-useGLTF.preload('/models/samsung_tv_remote_control.glb')
-export default Mando
+useGLTF.preload('/models/samsung_tv_remote_control.glb');
+export default Mando;

@@ -2,7 +2,6 @@ import { useIdioma } from "../../contexts/idioma-context";
 import Button from "../../components/Button";
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-scroll";
-import { Canvas } from "@react-three/fiber";
 import {
   FaReact,
   FaHtml5,
@@ -11,12 +10,15 @@ import {
   FaPhp,
   FaLinux,
   FaDocker,
-  FaJava,
+  FaGithub,
 } from "react-icons/fa";
+import { SiThreedotjs } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
-import "./About.css";
 import CV from "../../components/mostrar_cv";
 import Globe from "react-globe.gl";
+
+import "./About.css";
+
 const About = () => {
   const { language } = useIdioma();
   const [hasCopied, setHasCopied] = useState(false);
@@ -86,7 +88,7 @@ const About = () => {
                   >
                     aquí
                   </a>{" "}
-                  para descargar mi CV o clica en la imagen para verlo.
+                  para descargar mi CV o haz click en la imagen para verlo.
                 </>
               ) : (
                 <>
@@ -133,7 +135,7 @@ const About = () => {
               spy={true}
               smooth={true}
               duration={650}
-              offset={-50}
+              offset={-100}
             >
               <Button
                 name={
@@ -154,8 +156,8 @@ const About = () => {
             </p>
             <p className="grid-subtext">
               {language === "es"
-                ? "He aprendido a desarrollar sitios web tanto por mi cuenta como con instituciones como la Universidad de Málaga."
-                : "I have learned to develop websites both by myself and with institutions such as the University of Malaga."}
+                ? "A pesar de contar con una experiencia profesional limitada, mi capacidad autodidacta, junto con mis estudios en Formación Profesional y Universidad, me permite manejar diversos campos de la informática, destacando especialmente los siguientes:"
+                : "Despite having limited professional experience, my self-taught ability, combined with my studies in Vocational Training and University, allows me to tackle various fields of IT, with particular emphasis on the following:"}
             </p>
           </div>
           <div className="tecnologias">
@@ -167,6 +169,7 @@ const About = () => {
                 style={{ color: "#61dafb" }}
                 className="icono-tecnologia"
               />
+              <SiThreedotjs className="icono-tecnologia" />
               <FaCss3Alt
                 style={{ color: "rgb(32, 128, 255)" }}
                 className="icono-tecnologia"
@@ -178,7 +181,10 @@ const About = () => {
               <div>
                 <p className="grid-headtext">Back-end</p>
               </div>
-              <SiMysql className="icono-tecnologia" style={{ color: "#0db7ed" }} />
+              <SiMysql
+                className="icono-tecnologia"
+                style={{ color: "#0db7ed" }}
+              />
               <FaPhp
                 style={{ color: "rgb(113, 74, 145)" }}
                 className="icono-tecnologia"
@@ -190,9 +196,15 @@ const About = () => {
                   {language === "es" ? "Conocimientos en" : "Knowledge of"}
                 </p>
               </div>
-              <FaLinux style={{ color: "black" }} className="icono-tecnologia"/>
-              <FaDocker style={{ color: "#0db7ed" }} className="icono-tecnologia"/>
-              <FaJava  style={{ color: "red" }} className="icono-tecnologia"/>
+              <FaLinux
+                style={{ color: "black" }}
+                className="icono-tecnologia"
+              />
+              <FaDocker
+                style={{ color: "#0db7ed" }}
+                className="icono-tecnologia"
+              />
+              <FaGithub style={{ color: "black" }} className="icono-tecnologia" />
             </div>
           </div>
         </div>
@@ -216,7 +228,9 @@ const About = () => {
                 }
                 alt="copy"
               />
-              <p className="copy-email">alejandromartin@alejandromartince.com</p>
+              <p className="copy-email">
+                alejandromartin@alejandromartince.com
+              </p>
             </div>
           </div>
         </div>

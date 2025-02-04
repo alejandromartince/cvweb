@@ -1,16 +1,21 @@
 import React from 'react';
-import './Footer.css';  // Asegúrate de tener el archivo CSS que te proporcioné
+import { useIdioma } from "../../contexts/idioma-context";
+import './Footer.css';
 
 const Footer = () => {
+  const { language } = useIdioma(); // Aquí obtenemos el idioma del contexto
+
   return (
     <footer className="footer-container">
       <div className="footer-content">
-        <p className="footer-text" style={{ color: 'var(--verde-claro)' }}>Sitio web desarrollado por</p>
+        <p className="footer-text" style={{ color: 'var(--verde-claro)' }}>
+          {language === "es" ? "Desarrollado por" : "Developed by"}
+        </p>
         <div>
-        <h1>Alejandro Martín Rodríguez</h1>
+          <h1>Alejandro Martín Rodríguez</h1>
         </div>
         <div className="footer-descripcion">
-          <p>Con React y Three.js como principales librerías con el objetivo de crear una experiencia interactiva y atractiva.</p>
+          <p>{language === "es" ? "Con React y Three.js como principales librerías." : "Using React and Three.js as main libraries."}</p>
         </div>
       </div>
     </footer>

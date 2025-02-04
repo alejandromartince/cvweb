@@ -158,7 +158,9 @@ export const usePosterArcaneControls = () => ({
   PosterArcaneScale: 0.05,
 });
 
-/* Controles para el CV */
+/* ====================================
+    Controles para el CV
+==================================== */
 
 export const useCVControls = () => ({
   cvX: 1.5,
@@ -177,22 +179,41 @@ export const useCameraCVControls = () => ({
   fov: 18,
 });
 
-export const useTableControls = () => ({
-  TableposX: 3.4,
-  TableposY: -4.0,
-  TableposZ: 0,
-  TablerotX: 0,
-  TablerotY: 3.1,
-  TablerotZ: 0,
-  Tablescale: 3.7,
+/* ====================================
+    Controles para la sala de proyectos 
+==================================== */
+export const useCamaraRoomControls = () => ({
+  fov: 49,
+  near: 0.1,
+  CamaraPositionX: 1,
+  CamaraPositionY: 0,
+  CamaraPositionZ: 20.0,
+  Distance: 10,
 });
 
-export const useSpotLightControls = () => ({
-  SpotPosX: -0.2,
-  SpotPosY: 0.0,
-  SpotPosZ: -20.0,
-  SpotIntensity: 4.5,
-  SpotAngle: 0.8,
-  SpotPenumbra: 1.0,
-  SpotDecay: 0.0,
+export const useRoomControls = () => ({
+  RoomPositionX: 0.90,
+  RoomPositionY: -2.80,
+  RoomPositionZ: 7.85,
+  RoomRotationX: 0,
+  RoomRotationY: -1.45,
+  RoomRotationZ: 0,
+  RoomScale: 3.1,
+});
+
+export const useLightControls = () => ({
+  LightPosX: -0.5,
+  LightPosY: 4.6,
+  LightPosZ: -6.6,
+  LightIntensity: 1.2,
+});
+
+export const useMandoControls = () => ({
+  MandoPositionX: 1.55,
+  MandoPositionY: -0.8,
+  MandoPositionZ: 2.55,
+  MandoRotationX: 0,
+  MandoRotationY: 0.20,
+  MandoRotationZ: 0,
+  MandoScale: 0.6,
 });

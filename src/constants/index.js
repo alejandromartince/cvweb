@@ -71,9 +71,9 @@ export const myProjects = [
       es: "Desarrollado con PHP y MySql para facilitar el manejo del contenido de la página y una escalabilidad óptima.",
       en: "Developed with PHP and MySQL to facilitate content management on the page and optimal scalability."
     },
-    href: "Pon el netlify",
+    href: "https://github.com/AleMR12/Proyecto-Vinilo",
     texture: "/textures/video.mp4",
-    logo: "..//assets/Logos/LogoMV.png",
+    logo: "../assets/Logos/LogoMV.png",
     // Cambia las rutas de las imágenes
     spotlight: "/assets/Spotlights/spotlight2.png",  // Cambia aquí
     tags: [
@@ -94,10 +94,10 @@ export const myProjects = [
       en: "De Sur A Sur is an online store specialized in the fashion world, offering an exclusive selection of bags, baskets, and hampers."
     },
     subdesc: {
-      es: "Fue mi primer proyecto, realizado con la intención de aprender y mejorar mis conocimientos y habilidades.",
-      en: "It was my first project, created with the intention of learning and improving my knowledge and skills."
+      es: "Fue mi primer proyecto, realizado con la intención de aprender y mejorar mis conocimientos y habilidades en el desarrollo web.",
+      en: "It was my first project, created with the intention of learning and improving my knowledge and skills in web development."
     },
-    href: "Pon el netlify",
+    href: "https://github.com/alejandromartince/desurasur",
     texture: "/textures/video2.mp4",
     logo: "../assets/Logos/LogoDSAS.png",
     spotlight: "/assets/Spotlights/spotlight1.png",  // Cambia aquí

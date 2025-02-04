@@ -17,7 +17,7 @@ const NavItems = ({ onClick, language }) => {
             smooth={true} // Desplazamiento suave
             duration={500} // Duración del scroll en milisegundos
             onClick={onClick}
-            offset={-50}
+            offset={-100}
           >
             {item.name[language]} {/* Accede dinámicamente según el idioma */}
           </Link>
