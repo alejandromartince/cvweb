@@ -8,13 +8,13 @@ const HomeCamara = ({ children, isMobile, sensitivity = 5 }) => {
 
   useFrame((state, delta) => {
     // Mueve la posición de la cámara suavemente
-    easing.damp3(state.camera.position, [0, 0, 50], 0.25, delta);
+    easing.damp3(state.camera.position, [1, 0, 50], 0.25, delta);
 
     // Si no es móvil, rota el grupo en función del puntero con sensibilidad ajustable
     if (!isMobile && groupRef.current) {
       easing.dampE(
         groupRef.current.rotation,
-        [-state.pointer.y / sensitivity, state.pointer.x / sensitivity, 0],
+        [-state.pointer.y / (sensitivity*3), state.pointer.x / sensitivity, 0],
         0.25,
         delta
       );

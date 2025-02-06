@@ -18,8 +18,6 @@ const Room = ({ currentProject, ...props }) => {
     }
   }, [textura]); // Solo se ejecuta cuando 'textura' cambia
 
-  const pared = useTexture("/textures/green-wall.jpg");
-
   textura.center.set(0.5, 0.5);
 
   return (

@@ -2,7 +2,7 @@ import React from 'react';
 import { useGLTF } from '@react-three/drei';
 
 const CV = (props) => {
-  const { nodes, materials } = useGLTF('/models/cv.glb');
+  const { nodes, materials } = useGLTF('/models/CV.glb');
 
   return (
     <group {...props} dispose={null}>
@@ -28,5 +28,5 @@ const CV = (props) => {
   );
 };
 
-useGLTF.preload('/models/cv.glb');
+useGLTF.preload('/models/CV.glb');
 export default CV;
