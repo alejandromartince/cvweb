@@ -85,7 +85,7 @@ const Projects = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <p>{language === "es" ? "Ver Código" : "View Code"}</p>
+              <p>{language === "es" ? "Ver Sitio Web" : "View Web Site"}</p>
               <FaArrowUpRightFromSquare color="var(--verde-claro)" />
             </a>
           </div>

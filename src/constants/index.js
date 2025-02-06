@@ -71,7 +71,7 @@ export const myProjects = [
       es: "Desarrollado con PHP y MySql para facilitar el manejo del contenido de la página y una escalabilidad óptima.",
       en: "Developed with PHP and MySQL to facilitate content management on the page and optimal scalability."
     },
-    href: "https://github.com/AleMR12/Proyecto-Vinilo",
+    href: "https://mundovinilo.alejandromartince.com",
     texture: "/textures/video.mp4",
     logo: "../assets/Logos/LogoMV.png",
     // Cambia las rutas de las imágenes
@@ -97,7 +97,7 @@ export const myProjects = [
       es: "Fue mi primer proyecto, realizado con la intención de aprender y mejorar mis conocimientos y habilidades en el desarrollo web.",
       en: "It was my first project, created with the intention of learning and improving my knowledge and skills in web development."
     },
-    href: "https://github.com/alejandromartince/desurasur",
+    href: "https://desurasur.alejandromartince.com",
     texture: "/textures/video2.mp4",
     logo: "../assets/Logos/LogoDSAS.png",
     spotlight: "/assets/Spotlights/spotlight1.png",  // Cambia aquí

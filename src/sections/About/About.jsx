@@ -12,6 +12,7 @@ import {
   FaDocker,
   FaGithub,
 } from "react-icons/fa";
+import { SiBlender } from "react-icons/si";
 import { SiThreedotjs } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import CV from "../../components/mostrar_cv";
@@ -204,6 +205,7 @@ const About = () => {
                 style={{ color: "#0db7ed" }}
                 className="icono-tecnologia"
               />
+              <SiBlender style={{color: "orange"}}/>
               <FaGithub style={{ color: "black" }} className="icono-tecnologia" />
             </div>
           </div>
