@@ -189,18 +189,22 @@
   width: 8rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1200px) {
   .grid-container {
-    grid-template-columns: 1fr; /* En pantallas más pequeñas (móviles), la grid tendrá 1 columna */
+    grid-template-columns: repeat(1, 1fr); /* Tres columnas de igual tamaño */
+    padding: 0;
+    grid-template-areas: 
+    "grid-contacto"
+    "grid-desarrollador"
+    "grid-mundo"
+    "grid-tecnologias"
+    "grid-copiar";
+    
   }
 
   .copy-box {
     max-width: 15rem; /* Limité el tamaño de la caja en dispositivos más pequeños */
   }
 
-  /* Ajustes específicos para el tamaño de las tarjetas móviles */
-  .react-card {
-    grid-column: span 1; /* En dispositivos pequeños, la react-card ocupa 1 columna */
-  }
 }
 
