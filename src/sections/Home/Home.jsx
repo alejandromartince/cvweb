@@ -1,4 +1,4 @@
-import React, { Suspense } from "react";
+import React, { Suspense, useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-scroll";
 import { Canvas } from "@react-three/fiber";
@@ -42,6 +42,18 @@ const Home = () => {
     SecondLightIntensity,
   } = useLuzControls();
 
+  // Estado para detectar si es móvil o tablet
+  const [esMovil, setEsMovil] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const manejarResize = () => {
+      setEsMovil(window.innerWidth <= 768);
+    };
+
+    window.addEventListener("resize", manejarResize);
+    return () => window.removeEventListener("resize", manejarResize);
+  }, []);
+
   return (
     <section className="home-section" id="home">
       <div className="espacio-objetos">
@@ -58,50 +70,52 @@ const Home = () => {
             cursorStyle={<span className="typewriter-cursor">|</span>}
             deleteSpeed={50}
             delaySpeed={1000}
-            cursorBlinkSpeed={1000} // Ajustar la velocidad del parpadeo del cursor
+            cursorBlinkSpeed={1000}
           />
         </p>
 
         {/* Componente que contiene el Canvas */}
         <div style={{ width: "100%", height: "100%" }}>
-          <Canvas shadows gl={{ outputColorSpace: THREE.SRGBColorSpace }}>
+          <Canvas shadows>
             <PerspectiveCamera
               makeDefault
-              position={[CamaraPositionX, CamaraPositionY, CamaraPositionZ]}
+              position={[
+                esMovil ? CamaraPositionX * 0.5 : CamaraPositionX,
+                esMovil ? CamaraPositionY * 0.5 : CamaraPositionY,
+                esMovil ? CamaraPositionZ * 0.5 : CamaraPositionZ,
+              ]}
               near={CamaraNear}
             />
             <ambientLight intensity={1} />
-            {/* Luz direccional */}
             <directionalLight
               position={[LightPosX, LightPosY, LightPosZ]}
               intensity={LightIntensity}
               castShadow
-              shadow-mapSize-width={2048} // Mejora la resolución horizontal
-              shadow-mapSize-height={2048} // Mejora la resolución vertical
-              shadow-camera-near={0.5} // Qué tan cerca empiezan las sombras
-              shadow-camera-far={500} // Qué tan lejos llegan las sombras
-              shadow-camera-left={-10} // Extiende el área de la izquierda
-              shadow-camera-right={10} // Extiende el área de la derecha
-              shadow-camera-top={10} // Extiende hacia arriba
-              shadow-camera-bottom={-10} // Extiende hacia abajo
-              shadow-bias={-0.001} // Evita artefactos de sombra
+              shadow-mapSize-width={2048}
+              shadow-mapSize-height={2048}
+              shadow-camera-near={0.5}
+              shadow-camera-far={500}
+              shadow-camera-left={-10}
+              shadow-camera-right={10}
+              shadow-camera-top={10}
+              shadow-camera-bottom={-10}
+              shadow-bias={-0.001}
             />
 
             <rectAreaLight
-              castShadow
-              width={30} // Ancho del plano de luz
-              height={30} // Alto del plano de luz
-              intensity={SecondLightIntensity} // Intensidad de la luz
-              position={[SecondLightPosX, SecondLightPosY, SecondLightPosZ]} // Posición del plano de luz
-              rotation={[-Math.PI / 2, 0, 0]} // Orientación de la luz (por ejemplo, apuntando hacia abajo)
+              width={30}
+              height={30}
+              intensity={SecondLightIntensity}
+              position={[SecondLightPosX, SecondLightPosY, SecondLightPosZ]}
+              rotation={[-Math.PI / 2, 0, 0]}
             />
 
             <Suspense fallback={<CanvasLoader />}>
-              <group scale={2} position={[-3, -3.5, 0]}>
-                <HomeCamara sensitivity={2}>
+              <group scale={esMovil ? 1.5 : 2} position={esMovil ? [-1.5, -1.5, 0] : [-3, -3.5, 0]}>
+                <HomeCamara sensitivity={esMovil ? 1 : 2}>
                   <CHome
                     rotation={[CHomeRotationX, CHomeRotationY, CHomeRotationZ]}
-                    scale={CHomeScale}
+                    scale={esMovil ? CHomeScale * 0.8 : CHomeScale}
                   />
                 </HomeCamara>
               </group>
@@ -111,13 +125,7 @@ const Home = () => {
       </div>
 
       <div>
-        <Link
-          to="about" // El ID del destino
-          spy={true}
-          smooth={true}
-          duration={650}
-          offset={-50}
-        >
+        <Link to="about" spy={true} smooth={true} duration={650} offset={-50}>
           <Button
             name={language === "es" ? "¡Conocer más!" : "Know more about me!"}
             containerClass="custom-class"

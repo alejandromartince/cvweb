@@ -28,8 +28,6 @@
   animation: wave 2s infinite;
 }
 
-
-
 /* Efecto de máquina de escribir */
 .typewriter-effect {
   font-family: "Courier New", Courier, monospace;
@@ -44,7 +42,6 @@
   font-size: 2rem;
   font-weight: 200;
 }
-
 
 /* Contenedor de objetos 3D */
 .espacio-objetos {
@@ -92,7 +89,8 @@
 
 @media (max-width: 768px) {
   .home-section {
-    width: 40rem;
+    width: 100%;
+    height: 100vh; /* Ocupa toda la pantalla */
     display: flex;
     flex-direction: column;
     align-items: center; /* Centra los elementos en el eje horizontal */
@@ -100,10 +98,13 @@
   }
 
   .espacio-objetos {
-    width: max-content; /* Deja que ocupe todo el ancho de la ventana */
+    width: 100%; /* Asegura que el contenido se ajuste al ancho */
+    height: 100%; /* Mantiene la altura completa */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 }
-
 
 /* Animación del emoji 👋 */
 @keyframes wave {
