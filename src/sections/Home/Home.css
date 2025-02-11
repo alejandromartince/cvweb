@@ -56,36 +56,12 @@
   box-sizing: border-box;
 }
 
-.canvas {
+.canvas-container {
   width: 100%;
-  height: 90%;
+  height: 100%;
   outline: none; /* Asegura que el canvas se ajuste al contenedor */
 }
 
-/* Botón */
-.boton {
-  text-align: center;
-}
-
-.boton a {
-  cursor: pointer;
-  text-decoration: none;
-}
-
-.boton button {
-  background-color: var(--azul-light);
-  color: var(--blanco);
-  border: none;
-  padding: 0.8rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 0.5rem;
-  transition: background-color 0.3s ease;
-  cursor: pointer;
-}
-
-.boton button:hover {
-  background-color: var(--azul-oscuro);
-}
 
 @media (max-width: 768px) {
   .home-section {
@@ -99,11 +75,29 @@
 
   .espacio-objetos {
     width: 100%; /* Asegura que el contenido se ajuste al ancho */
-    height: 100%; /* Mantiene la altura completa */
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
+}
+
+@media (max-width: 1280px) {
+  .bienvenida {
+    font-size: x-large;
+    padding-top: 1rem;
+  }
+
+  .typewriter-effect{
+    font-size: large;
+  }
+
+  .home-button{
+    padding-bottom: 1rem;
+  }
+  .espacio-objetos{
+    height: 70vh;
+  }
+  
 }
 
 /* Animación del emoji 👋 */

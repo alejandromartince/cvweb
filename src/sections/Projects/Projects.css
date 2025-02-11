@@ -169,6 +169,7 @@
   height: 2.5rem;
   padding: 0.75rem;
   border-radius: 50%;
+  cursor: pointer;
   transition: transform 0.2s;
   background: linear-gradient(
     to right,

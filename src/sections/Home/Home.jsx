@@ -75,7 +75,7 @@ const Home = () => {
         </p>
 
         {/* Componente que contiene el Canvas */}
-        <div style={{ width: "100%", height: "100%" }}>
+        <div className="canvas-container">
           <Canvas shadows>
             <PerspectiveCamera
               makeDefault
@@ -124,7 +124,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div>
+      <div className="home-button">
         <Link to="about" spy={true} smooth={true} duration={650} offset={-50}>
           <Button
             name={language === "es" ? "¡Conocer más!" : "Know more about me!"}

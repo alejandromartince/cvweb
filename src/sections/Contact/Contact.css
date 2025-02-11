@@ -32,7 +32,6 @@
   width: 0.75rem;
   height: 0.75rem;
   border-radius: 50%;
-  cursor: pointer;
 }
 
 .macos-button.close {
@@ -76,7 +75,6 @@
 .reload {
   text-align: right; /* Alinea el icono de recarga a la derecha */
   padding-right: 1rem;
-  cursor: pointer;
 }
 
 .copiar {

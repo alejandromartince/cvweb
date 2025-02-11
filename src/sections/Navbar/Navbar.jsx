@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import { IoIosMenu, IoIosClose } from "react-icons/io";
-import { useIdioma } from "../../contexts/idioma-context"; // Correcto
-import { IoIosArrowDown } from "react-icons/io"; // Para el icono de cambio de idioma
+import React, { useState, useEffect, useRef } from "react";
+import { IoIosMenu, IoIosClose, IoIosArrowDown } from "react-icons/io";
+import { useIdioma } from "../../contexts/idioma-context";
 import { navLinks } from "../../constants/index.js";
-import { Link } from "react-scroll"; // Importamos Link
+import { Link } from "react-scroll";
 import "./Navbar.css";
 
 const NavItems = ({ onClick, language }) => {
@@ -12,14 +11,14 @@ const NavItems = ({ onClick, language }) => {
       {navLinks.map((item) => (
         <li key={item.id} className="nav__item">
           <Link
-            to={item.href.replace("#", "")} // Elimina el "#" del href para usar el ID con react-scroll
+            to={item.href.replace("#", "")}
             className="nav__link"
-            smooth={true} // Desplazamiento suave
-            duration={500} // Duración del scroll en milisegundos
+            smooth={true}
+            duration={500}
             onClick={onClick}
             offset={-100}
           >
-            {item.name[language]} {/* Accede dinámicamente según el idioma */}
+            {item.name[language]}
           </Link>
         </li>
       ))}
@@ -28,25 +27,70 @@ const NavItems = ({ onClick, language }) => {
 };
 
 const Navbar = () => {
-  const { language, cambiarIdioma } = useIdioma(); // Obtener idioma y la función para cambiarlo
+  const { language, cambiarIdioma } = useIdioma();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isLanguageMenuOpen, setIsLanguageMenuOpen] = useState(false);
+  const languageMenuRef = useRef(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
+  const toggleLanguageMenu = () => {
+    setIsLanguageMenuOpen(!isLanguageMenuOpen);
+  };
+
+  const handleLanguageChange = (newLanguage) => {
+    cambiarIdioma(newLanguage);
+    setIsLanguageMenuOpen(false);
+  };
+
+  const rutaImagen = {
+    es: "../assets/Extras/España.svg",
+    en: "../assets/Extras/EN.png",
+  };
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (languageMenuRef.current && !languageMenuRef.current.contains(event.target)) {
+        setIsLanguageMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
   return (
     <header className="navbar">
       <div className="navbar__container">
         {/* Language Switcher */}
-        <div className="language-switcher" onClick={cambiarIdioma}>
-          <p id="idioma">{language === "es" ? "ES" : "EN"}</p>
+        <div className="language-switcher" onClick={toggleLanguageMenu} ref={languageMenuRef}>
+          <img src={rutaImagen[language]} alt="idioma" style={{ width: "1.5rem" }} />
           <IoIosArrowDown className="hiswitchhorizontal" size={22} />
+          {isLanguageMenuOpen && (
+            <div className="language-dropdown">
+              <div
+                className="language-option"
+                onClick={() => handleLanguageChange("es")}
+              >
+                <img src="../assets/Extras/España.svg" alt="idioma" style={{ width: "1.5rem" }} />
+              </div>
+              <div
+                className="language-option"
+                onClick={() => handleLanguageChange("en")}
+              >
+                <img src="../assets/Extras/EN.png" alt="idioma" style={{ width: "1.5rem" }} />
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Menu brand or logo */}
         <nav className="navbar__desktop">
-          <NavItems language={language} /> {/* Pasamos `language` como prop */}
+          <NavItems language={language} />
         </nav>
 
         <div className="navbar__toggle" onClick={toggleMenu}>
