@@ -68,3 +68,8 @@
     }
   }
   
+  @media (max-width: 640px){
+    .button{
+      margin-bottom: 1.5rem;
+    }
+  }

@@ -46,13 +46,21 @@ const Navbar = () => {
   };
 
   const rutaImagen = {
-    es: "../assets/Extras/España.svg",
+    es: "../assets/Extras/España.png",
     en: "../assets/Extras/EN.png",
   };
 
+  const Idioma = {
+    es: "ES",
+    en: "EN",
+  }
+
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (languageMenuRef.current && !languageMenuRef.current.contains(event.target)) {
+      if (
+        languageMenuRef.current &&
+        !languageMenuRef.current.contains(event.target)
+      ) {
         setIsLanguageMenuOpen(false);
       }
     };
@@ -67,8 +75,15 @@ const Navbar = () => {
     <header className="navbar">
       <div className="navbar__container">
         {/* Language Switcher */}
-        <div className="language-switcher" onClick={toggleLanguageMenu} ref={languageMenuRef}>
-          <img src={rutaImagen[language]} alt="idioma" style={{ width: "1.5rem" }} />
+        <div
+          className="language-switcher"
+          onClick={toggleLanguageMenu}
+          ref={languageMenuRef}
+        >
+          <div className="bandera">
+            <img src={rutaImagen[language]}  alt="Idioma" className="img-bandera" /> 
+            <span>&nbsp;&nbsp;{Idioma[language]}</span>
+          </div>
           <IoIosArrowDown className="hiswitchhorizontal" size={22} />
           {isLanguageMenuOpen && (
             <div className="language-dropdown">
@@ -76,13 +91,23 @@ const Navbar = () => {
                 className="language-option"
                 onClick={() => handleLanguageChange("es")}
               >
-                <img src="../assets/Extras/España.svg" alt="idioma" style={{ width: "1.5rem" }} />
+                <img
+                  src="../assets/Extras/España.png"
+                  alt="idioma"
+                  className="img-bandera"
+                />
+                ES
               </div>
               <div
                 className="language-option"
                 onClick={() => handleLanguageChange("en")}
               >
-                <img src="../assets/Extras/EN.png" alt="idioma" style={{ width: "1.5rem" }} />
+                <img
+                  src="../assets/Extras/EN.png"
+                  alt="idioma"
+                  className="img-bandera"
+                />
+                EN
               </div>
             </div>
           )}
@@ -103,9 +128,7 @@ const Navbar = () => {
       </div>
 
       <nav
-        className={`navbar__mobile ${
-          isMenuOpen ? "navbar__mobile--open" : ""
-        }`}
+        className={`navbar__mobile ${isMenuOpen ? "navbar__mobile--open" : ""}`}
       >
         <NavItems language={language} onClick={() => setIsMenuOpen(false)} />
       </nav>

@@ -93,7 +93,7 @@ const Contact = () => {
             <img
               src="/assets/Extras/copy.svg"
               alt="copy"
-              style={{ width: "20px", height: "20px" }}
+              style={{ width: "2rem", height: "1.5rem" }}
             />
           </div>
         </div>

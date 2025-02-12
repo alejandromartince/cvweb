@@ -1,7 +1,9 @@
 import { useIdioma } from "../../contexts/idioma-context";
 import Button from "../../components/Button";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef, Suspense } from "react";
 import { Link } from "react-scroll";
+import { Canvas } from "@react-three/fiber";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import {
   FaReact,
   FaHtml5,
@@ -16,8 +18,8 @@ import { SiBlender } from "react-icons/si";
 import { SiThreedotjs } from "react-icons/si";
 import { SiMysql } from "react-icons/si";
 import CV from "../../components/mostrar_cv";
-import Globe from "react-globe.gl";
-
+import CanvasLoader from "../../components/CanvasLoader";
+import Mundo from "../../components/Mundo";
 import "./About.css";
 
 const About = () => {
@@ -32,15 +34,6 @@ const About = () => {
       setHasCopied(false);
     }, 2000);
   };
-
-  useEffect(() => {
-    if (globeRef.current) {
-      globeRef.current.pointOfView(
-        { lat: 40.4637, lng: -3.7492, altitude: 2 }, // España
-        1000 // Tiempo de animación en ms
-      );
-    }
-  }, []);
 
   return (
     <section className="about-container" id="about">
@@ -81,27 +74,27 @@ const About = () => {
             <p className="grid-subtext">
               {language === "es" ? (
                 <>
-                  Haz click{" "}
+                  Haz click&nbsp;
                   <a
                     href="/assets/CV_es.pdf"
                     download="CV_es.pdf"
                     className="enlace_cv"
                   >
                     aquí
-                  </a>{" "}
-                  para descargar mi CV o haz click en la imagen para verlo.
+                  </a>
+                  &nbsp;para descargar mi CV o haz click en la imagen para verlo.
                 </>
               ) : (
                 <>
-                  Click{" "}
+                  Click&nbsp;
                   <a
                     href="/assets/CV_en.pdf"
                     download="CV_en.pdf"
                     className="enlace_cv"
                   >
                     here
-                  </a>{" "}
-                  to download my CV or click on the image to view it.
+                  </a>
+                  &nbsp;to download my CV or click on the image to view it.
                 </>
               )}
             </p>
@@ -109,15 +102,26 @@ const About = () => {
         </div>
         <div className="globe-card" id="grid-mundo">
           <div className="globe-container">
-            <Globe
-              ref={globeRef} // Pasa `ref` aquí para la manipulación
-              height={350}
-              width={350}
-              backgroundColor="rgba(0, 0, 0, 0)"
-              showAtmosphere
-              globeImageUrl="../assets/Extras/mundo.jpg"
-              bumpImageUrl="//unpkg.com/three-globe/example/img/earth-topology.png"
-            />
+            <Canvas shadows  className="canvas-img">
+              <ambientLight intensity={1.5} />
+
+              {/* Aquí la cámara está fijada al centro inicial */}
+              <PerspectiveCamera
+                makeDefault
+                position={[0, 0, 5]}
+                fov={15} // Aumenta el campo de visión
+              />
+
+              <Suspense fallback={<CanvasLoader />}>
+                <Mundo scale={2.3} />
+                <OrbitControls
+                  enableRotate
+                  autoRotate
+                  enablePan={false}
+                  enableZoom={false} 
+                />
+              </Suspense>
+            </Canvas>
           </div>
           <div>
             <p className="grid-headtext">
@@ -205,8 +209,11 @@ const About = () => {
                 style={{ color: "#0db7ed" }}
                 className="icono-tecnologia"
               />
-              <SiBlender style={{color: "orange"}}/>
-              <FaGithub style={{ color: "black" }} className="icono-tecnologia" />
+              <SiBlender style={{ color: "orange" }} />
+              <FaGithub
+                style={{ color: "black" }}
+                className="icono-tecnologia"
+              />
             </div>
           </div>
         </div>

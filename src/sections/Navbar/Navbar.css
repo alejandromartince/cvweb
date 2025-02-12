@@ -55,11 +55,27 @@
   color: var(--negro); /* Color de texto negro o tu variable personalizada */
   font-size: 1rem;
   font-weight: bold;
+  display: flex;
+  gap: .5rem;
 }
 
 .language-option:hover {
   background-color: var(--verde-oscuro); /* Fondo gris claro al pasar el mouse */
 }
+
+.bandera{
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.img-bandera {
+  height: 1.5rem; /* Puedes ajustarlo según el tamaño que prefieras */
+  width: 1.5rem;  /* Asegura que la imagen sea cuadrada antes de aplicar border-radius */
+  border-radius: 50%;
+  object-fit: cover; /* Para que la imagen no se deforme */
+}
+
 
 /* Navbar links styling */
 .nav__list,

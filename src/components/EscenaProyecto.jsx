@@ -1,5 +1,5 @@
 import { Canvas } from "@react-three/fiber";
-import { Suspense, useEffect } from "react";
+import { Suspense } from "react";
 import { PerspectiveCamera, OrbitControls } from "@react-three/drei";
 import CanvasLoader from "./CanvasLoader.jsx";
 import Room from "./Room.jsx";
@@ -43,6 +43,8 @@ const EscenaProyecto = ({ currentProject }) => {
   const { LightPosX, LightPosY, LightPosZ, LightIntensity } =
     useLightControls();
 
+  const isMobile = window.innerWidth < 768; // Consideramos móvil si el ancho es menor a 768px
+
   return (
     <Canvas shadows style={{ borderRadius: ".5rem" }}>
       <ambientLight intensity={1} />
@@ -51,7 +53,6 @@ const EscenaProyecto = ({ currentProject }) => {
         intensity={LightIntensity}
       />
 
-      {/* Aquí la cámara está fijada al centro inicial */}
       <PerspectiveCamera
         makeDefault
         fov={fov}
@@ -59,8 +60,10 @@ const EscenaProyecto = ({ currentProject }) => {
         position={[
           CamaraPositionX,
           CamaraPositionY,
-          CamaraPositionZ - Distance,
-        ]} // Control de "zoom"
+          isMobile
+            ? CamaraPositionZ - Distance + 2
+            : CamaraPositionZ - Distance,
+        ]} // Se aleja 3 unidades más en móviles
       />
 
       <Suspense fallback={<CanvasLoader />}>

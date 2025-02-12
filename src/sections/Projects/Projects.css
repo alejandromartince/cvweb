@@ -98,7 +98,10 @@
 .project-details {
   color: var(--gris-claro);
   margin-top: 1.25rem;
-  height: 10rem;
+  min-height: 10rem; /* Asegura un espacio mínimo para el contenido */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .project-title {
@@ -121,6 +124,8 @@
   align-items: center;
   flex-wrap: wrap;
   gap: 1.25rem;
+  margin-top: auto; /* Empuja hacia abajo */
+  padding-top: 1rem;
 }
 
 .imagen-tecnologia {
@@ -207,5 +212,16 @@
 @media (min-width: 768px) {
   .projects-aside {  /* Cambié el nombre para que sea válido */
     height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .projects-head-text {
+    font-size: 1.5rem;
+  }
+
+  .projects-grid {
+    margin-top: 1rem;
   }
 }
