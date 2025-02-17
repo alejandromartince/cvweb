@@ -72,112 +72,125 @@ const Contact = () => {
 
   return (
     <section className="contact" id="contact">
-      <div className="section-contacto">
-        {/* Barra de ventana estilo macOS */}
-        <div className="ventana">
-          <div className="macos-buttons">
-            <span className="macos-button close"></span>
-            <span className="macos-button minimize"></span>
-            <span className="macos-button maximize"></span>
-          </div>
-          <div className="url-container">
-            <div></div> {/* Este div estará vacío */}
-            <div className="url">
-              <p className="url-text">🔒alejandromartince.com</p>
+      <p className="contactame-titulo">
+        {language === "es" ? (
+          <>
+            ¡Ponte en<span> Contacto!</span>
+          </>
+        ) : (
+          <>
+            Contact <span>Me!</span>
+          </>
+        )}
+      </p>
+      <div className="formulario-contacto">
+        <div className="section-contacto">
+          {/* Barra de ventana estilo macOS */}
+          <div className="ventana">
+            <div className="macos-buttons">
+              <span className="macos-button close"></span>
+              <span className="macos-button minimize"></span>
+              <span className="macos-button maximize"></span>
             </div>
-            <p className="reload">
-              <IoReload />
+            <div className="url-container">
+              <div></div> {/* Este div estará vacío */}
+              <div className="url">
+                <p className="url-text">🔒alejandromartince.com</p>
+              </div>
+              <p className="reload">
+                <IoReload />
+              </p>
+            </div>
+            <div className="copiar">
+              <img
+                src="/assets/Extras/copy.svg"
+                alt="copy"
+                style={{ width: "2rem", height: "1.5rem" }}
+              />
+            </div>
+          </div>
+
+          {/* Título y subtítulo del formulario */}
+          <div className="contact-title-container">
+            <h1 className="contact-title">
+              {language === "es"
+                ? "¡Pongámonos en contacto!"
+                : "Let's have a conversation!"}
+            </h1>
+            <p className="contact-subtitle">
+              {language === "es"
+                ? "¿Tienes dudas, curiosidad o quieres charlar sobre algún proyecto? Escríbeme cuando quieras, ¡estaré encantado de ayudarte!"
+                : "Do you have questions, curiosity, or just want to chat about a project? Write me whenever you want, I'll love to know about you!"}
             </p>
           </div>
-          <div className="copiar">
-            <img
-              src="/assets/Extras/copy.svg"
-              alt="copy"
-              style={{ width: "2rem", height: "1.5rem" }}
+
+          {/* Formulario de contacto */}
+          <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
+            {/* Campo de nombre */}
+            <label htmlFor="name" className="label">
+              {language === "es" ? "Nombre" : "Name"}
+            </label>
+            <input
+              id="name"
+              name="name"
+              required
+              onChange={handleChange}
+              value={form.name}
+              type="text"
+              placeholder={
+                language === "es" ? "Introduce tu nombre" : "Enter your name"
+              }
+              className="input-name"
             />
-          </div>
+
+            {/* Campo de correo electrónico */}
+            <label htmlFor="email" className="label">
+              {language === "es" ? "Correo electrónico" : "Email"}
+            </label>
+            <input
+              id="email"
+              name="email"
+              required
+              onChange={handleChange}
+              value={form.email}
+              type="email"
+              placeholder={
+                language === "es" ? "Introduce tu correo" : "Enter your email"
+              }
+              className="input-email"
+            />
+
+            {/* Campo de mensaje */}
+            <label htmlFor="message" className="label">
+              {language === "es" ? "Mensaje" : "Message"}
+            </label>
+            <textarea
+              id="message"
+              required
+              name="message"
+              value={form.message}
+              onChange={handleChange}
+              rows={5}
+              placeholder={
+                language === "es"
+                  ? "Me gustaría tener una reunión contigo para comentarte que..."
+                  : "I would like to have a meeting with you to talk about..."
+              }
+              className="input-message"
+            />
+
+            {/* Botón de enviar */}
+            <button type="submit" className="button-submit" disabled={loading}>
+              {loading
+                ? language === "es"
+                  ? "Enviando Mensaje..."
+                  : "Sending Message..."
+                : language === "es"
+                ? "Enviar Mensaje"
+                : "Send Message"}
+            </button>
+          </form>
         </div>
-
-        {/* Título y subtítulo del formulario */}
-        <div className="contact-title-container">
-          <h1 className="contact-title">
-            {language === "es"
-              ? "¡Pongámonos en conctacto!"
-              : "Let's have a conversation!"}
-          </h1>
-          <p className="contact-subtitle">
-            {language === "es"
-              ? "¿Tienes dudas, curiosidad o quieres charlar sobre algún proyecto? Escríbeme cuando quieras, ¡estaré encantado de ayudarte!"
-              : "Do you have questions, curiosity, or just want to chat about a project? Write me whenever you want, I'll love to know about you!"}
-          </p>
-        </div>
-
-        {/* Formulario de contacto */}
-        <form className="contact-form" ref={formRef} onSubmit={handleSubmit}>
-          {/* Campo de nombre */}
-          <label htmlFor="name" className="label">
-            {language === "es" ? "Nombre" : "Name"}
-          </label>
-          <input
-            id="name"
-            name="name"
-            required
-            onChange={handleChange}
-            value={form.name}
-            type="text"
-            placeholder={
-              language === "es" ? "Introduce tu nombre" : "Enter your name"
-            }
-            className="input-name"
-          />
-
-          {/* Campo de correo electrónico */}
-          <label htmlFor="email" className="label">
-            {language === "es" ? "Correo electrónico" : "Email"}
-          </label>
-          <input
-            id="email"
-            name="email"
-            required
-            onChange={handleChange}
-            value={form.email}
-            type="email"
-            placeholder={
-              language === "es" ? "Introduce tu correo" : "Enter your email"
-            }
-            className="input-email"
-          />
-
-          {/* Campo de mensaje */}
-          <label htmlFor="message" className="label">
-            {language === "es" ? "Mensaje" : "Message"}
-          </label>
-          <textarea
-            id="message"
-            required
-            name="message"
-            value={form.message}
-            onChange={handleChange}
-            rows={5}
-            placeholder={
-              language === "es"
-                ? "Me gustaría tener una reunión contigo para comentarte que..."
-                : "I would like to have a meeting with you to talk about..."
-            }
-            className="input-message"
-          />
-
-          {/* Botón de enviar */}
-          <button type="submit" className="button-submit" disabled={loading}>
-            {loading
-              ? language === "es"
-                ? "Enviando Mensaje..."
-                : "Sending Message..."
-              : language === "es"
-              ? "Enviar Mensaje"
-              : "Send Message"}
-          </button>
-        </form>
       </div>
     </section>
   );

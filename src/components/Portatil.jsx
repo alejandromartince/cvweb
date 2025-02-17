@@ -5,7 +5,7 @@ const Portatil = (props) => {
   const { nodes, materials } = useGLTF('/models/laptop.glb')
 
   // Cargar la textura de la pantalla
-  const screen = useTexture('/assets/Extras/screen.png')
+  const screen = useTexture('/textures/screen.png')
 
   return (
     <group {...props} dispose={null}>

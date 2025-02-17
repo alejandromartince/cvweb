@@ -1,5 +1,17 @@
 
-.contact {
+.contactame-titulo{
+  text-align: center;
+  padding-bottom: 1rem;
+  color: var(--blanco);
+  font-weight: 600;
+  font-size: 2.25rem;
+}
+
+.contactame-titulo span{
+  color: var(--verde-claro);
+}
+
+.formulario-contacto {
   width: 95%; /* Aumenta el ancho para móviles */
   margin: 0 auto;
   height: max-content;
@@ -177,7 +189,7 @@
 
 /* Media Queries para tablets */
 @media (min-width: 768px) {
-  .contact {
+  .formulario-contacto {
     width: 80%;
   }
 
@@ -202,7 +214,7 @@
 
 /* Media Queries para escritorios */
 @media (min-width: 1024px) {
-  .contact {
+  .formulario-contacto {
     width: 60%;
   }
 
@@ -228,8 +240,8 @@
 
 /* Media Queries para tablets */
 @media (max-width: 768px) {
-  .contact {
-    width: 90%;
+  .formulario-contacto {
+    width: 100%;
     display: flex;
     justify-content: center;
   }
@@ -268,5 +280,13 @@
 
   .section-contacto{
     width: 90%;
+  }
+
+  .reload{
+    padding-right: .5rem;
+  }
+
+  .contactame-titulo{
+    font-size: 1.5rem;
   }
 }

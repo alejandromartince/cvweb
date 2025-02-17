@@ -45,7 +45,7 @@ const About = () => {
           <Canvas
             shadows
             className="image-avatar"
-            style={{ height: "95%", cursor: isDragging ? "grabbing" : "grab" }}
+            style={{ height: "40vh", cursor: isDragging ? "grabbing" : "grab" }}
             onPointerDown={() => setIsDragging(true)}
             onPointerUp={() => setIsDragging(false)}
             onPointerLeave={() => setIsDragging(false)} // Para evitar que quede trabado al salir del Canvas
@@ -64,11 +64,10 @@ const About = () => {
 
             <Suspense fallback={<CanvasLoader />}>
               <group scale={0.3}>
-                <Portatil scale={0.5} position={[0, -5, 5]} />
+                <Portatil scale={.5} position={[0, -5, 5]} />
                 <OrbitControls
                   enableRotate
-                  enablePan={true}
-                  enableZoom={true}
+                  enableZoom={false}
                   maxPolarAngle={Math.PI / 2}
                 />
               </group>
@@ -132,7 +131,7 @@ const About = () => {
         </div>
         <div className="globe-card" id="grid-mundo">
           <div className="globe-container">
-            <Canvas shadows className="canvas-img">
+            <Canvas>
               <ambientLight intensity={1.5} />
 
               {/* Aquí la cámara está fijada al centro inicial */}
@@ -143,7 +142,7 @@ const About = () => {
               />
 
               <Suspense fallback={<CanvasLoader />}>
-                <Mundo scale={2.3} />
+                <Mundo scale={2} />
                 <OrbitControls
                   enableRotate
                   autoRotate
@@ -170,7 +169,7 @@ const About = () => {
               spy={true}
               smooth={true}
               duration={650}
-              offset={-100}
+              offset={-70}
             >
               <Button
                 name={

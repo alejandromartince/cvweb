@@ -2,7 +2,7 @@ import React, { Suspense, useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-scroll";
 import { Canvas } from "@react-three/fiber";
-import { PerspectiveCamera } from "@react-three/drei";
+import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
 import * as THREE from "three";
 
 // Contextos y datos
@@ -79,11 +79,7 @@ const Home = () => {
           <Canvas shadows>
             <PerspectiveCamera
               makeDefault
-              position={[
-                esMovil ? CamaraPositionX * 0.5 : CamaraPositionX,
-                esMovil ? CamaraPositionY * 0.5 : CamaraPositionY,
-                esMovil ? CamaraPositionZ * 0.5 : CamaraPositionZ,
-              ]}
+              position={[CamaraPositionX, CamaraPositionY, CamaraPositionZ]}
               near={CamaraNear}
             />
             <ambientLight intensity={1} />
@@ -111,11 +107,14 @@ const Home = () => {
             />
 
             <Suspense fallback={<CanvasLoader />}>
-              <group scale={esMovil ? 1.5 : 2} position={esMovil ? [-1.5, -1.5, 0] : [-3, -3.5, 0]}>
+              <group
+                scale={esMovil ? 1.5 : 2}
+                position={esMovil ? [-1.5, -1.5, 0] : [-3, -3.5, 0]}
+              >
                 <HomeCamara sensitivity={esMovil ? 1 : 2}>
                   <CHome
                     rotation={[CHomeRotationX, CHomeRotationY, CHomeRotationZ]}
-                    scale={esMovil ? CHomeScale * 0.8 : CHomeScale}
+                    scale={esMovil ? CHomeScale * 1.1 : CHomeScale}
                   />
                 </HomeCamara>
               </group>
@@ -125,7 +124,7 @@ const Home = () => {
       </div>
 
       <div className="home-button">
-        <Link to="about" spy={true} smooth={true} duration={650} offset={-50}>
+        <Link to="about" spy={true} smooth={true} duration={650} offset={-80}>
           <Button
             name={language === "es" ? "¡Conocer más!" : "Know more about me!"}
             containerClass="custom-class"
