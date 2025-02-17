@@ -57,6 +57,8 @@
   font-weight: bold;
   display: flex;
   gap: .5rem;
+  transition: background-color .4s ease;
+
 }
 
 .language-option:hover {

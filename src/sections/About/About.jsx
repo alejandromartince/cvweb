@@ -20,6 +20,7 @@ import { SiMysql } from "react-icons/si";
 import CV from "../../components/mostrar_cv";
 import CanvasLoader from "../../components/CanvasLoader";
 import Mundo from "../../components/Mundo";
+import Portatil from "../../components/portatil";
 import "./About.css";
 
 const About = () => {
@@ -35,16 +36,44 @@ const About = () => {
     }, 2000);
   };
 
+  const [isDragging, setIsDragging] = useState(false);
+
   return (
     <section className="about-container" id="about">
       <div className="grid-container">
         <div className="contact-card" id="grid-contacto">
-          <img
-            src="../assets/Extras/avatar.png"
-            alt="Contact"
+          <Canvas
+            shadows
             className="image-avatar"
-          />
+            style={{ height: "95%", cursor: isDragging ? "grabbing" : "grab" }}
+            onPointerDown={() => setIsDragging(true)}
+            onPointerUp={() => setIsDragging(false)}
+            onPointerLeave={() => setIsDragging(false)} // Para evitar que quede trabado al salir del Canvas
+          >
+            <ambientLight intensity={2} />
 
+            {/* 🔹 Luz direccional enfocando al portátil */}
+            <directionalLight
+              position={[6, 15, 30]}
+              intensity={1.5}
+              castShadow
+              target-position={[0, -5, 5]}
+            />
+
+            <PerspectiveCamera makeDefault position={[0, 5, 10]} fov={45} />
+
+            <Suspense fallback={<CanvasLoader />}>
+              <group scale={0.3}>
+                <Portatil scale={0.5} position={[0, -5, 5]} />
+                <OrbitControls
+                  enableRotate
+                  enablePan={true}
+                  enableZoom={true}
+                  maxPolarAngle={Math.PI / 2}
+                />
+              </group>
+            </Suspense>
+          </Canvas>
           <div className="text-container">
             <p className="grid-headtext">
               {language === "es"
@@ -82,7 +111,8 @@ const About = () => {
                   >
                     aquí
                   </a>
-                  &nbsp;para descargar mi CV o haz click en la imagen para verlo.
+                  &nbsp;para descargar mi CV o haz click en la imagen para
+                  verlo.
                 </>
               ) : (
                 <>
@@ -102,7 +132,7 @@ const About = () => {
         </div>
         <div className="globe-card" id="grid-mundo">
           <div className="globe-container">
-            <Canvas shadows  className="canvas-img">
+            <Canvas shadows className="canvas-img">
               <ambientLight intensity={1.5} />
 
               {/* Aquí la cámara está fijada al centro inicial */}
@@ -118,7 +148,7 @@ const About = () => {
                   enableRotate
                   autoRotate
                   enablePan={false}
-                  enableZoom={false} 
+                  enableZoom={false}
                 />
               </Suspense>
             </Canvas>
