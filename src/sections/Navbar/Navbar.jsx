@@ -16,7 +16,7 @@ const NavItems = ({ onClick, language }) => {
             smooth={true}
             duration={500}
             onClick={onClick}
-            offset={-100}
+            offset={-70}
           >
             {item.name[language]}
           </Link>
