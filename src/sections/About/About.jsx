@@ -54,17 +54,15 @@ const About = () => {
 
             {/* 🔹 Luz direccional enfocando al portátil */}
             <directionalLight
-              position={[6, 15, 30]}
-              intensity={1.5}
-              castShadow
-              target-position={[0, -5, 5]}
+              position={[0, 5, 5]}
+              intensity={.8}
             />
 
-            <PerspectiveCamera makeDefault position={[0, 5, 10]} fov={45} />
+            <PerspectiveCamera makeDefault position={[0, 2, 5]} fov={45} />
 
             <Suspense fallback={<CanvasLoader />}>
-              <group scale={0.3}>
-                <Portatil scale={.5} position={[0, -5, 5]} />
+              <group scale={1}>
+                <Portatil scale={.6} position={[0, -1, 0]} rotation={[0, 0, 0]} />
                 <OrbitControls
                   enableRotate
                   enableZoom={false}

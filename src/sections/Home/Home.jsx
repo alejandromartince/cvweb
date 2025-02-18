@@ -2,8 +2,8 @@ import React, { Suspense, useState, useEffect } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { Link } from "react-scroll";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
-import * as THREE from "three";
+import { PerspectiveCamera } from "@react-three/drei";
+
 
 // Contextos y datos
 import { useIdioma } from "../../contexts/idioma-context";
