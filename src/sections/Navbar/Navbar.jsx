@@ -15,8 +15,10 @@ const NavItems = ({ onClick, language }) => {
             className="nav__link"
             smooth={true}
             duration={500}
+            spy={true} // Detecta automáticamente la sección activa
+            activeClass="active-link" // Aplica la clase cuando está en la sección visible
             onClick={onClick}
-            offset={-70}
+            offset={-70} // Ajusta según la altura del header
           >
             {item.name[language]}
           </Link>
@@ -53,7 +55,7 @@ const Navbar = () => {
   const Idioma = {
     es: "ES",
     en: "EN",
-  }
+  };
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -81,7 +83,7 @@ const Navbar = () => {
           ref={languageMenuRef}
         >
           <div className="bandera">
-            <img src={rutaImagen[language]}  alt="Idioma" className="img-bandera" /> 
+            <img src={rutaImagen[language]} alt="Idioma" className="img-bandera" />
             <span>&nbsp;&nbsp;{Idioma[language]}</span>
           </div>
           <IoIosArrowDown className="hiswitchhorizontal" size={22} />

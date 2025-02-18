@@ -72,17 +72,6 @@ const Contact = () => {
 
   return (
     <section className="contact" id="contact">
-      <p className="contactame-titulo">
-        {language === "es" ? (
-          <>
-            ¡Ponte en<span> Contacto!</span>
-          </>
-        ) : (
-          <>
-            Contact <span>Me!</span>
-          </>
-        )}
-      </p>
       <div className="formulario-contacto">
         <div className="section-contacto">
           {/* Barra de ventana estilo macOS */}
@@ -112,11 +101,17 @@ const Contact = () => {
 
           {/* Título y subtítulo del formulario */}
           <div className="contact-title-container">
-            <h1 className="contact-title">
-              {language === "es"
-                ? "¡Pongámonos en contacto!"
-                : "Let's have a conversation!"}
-            </h1>
+            <p className="contact-title">
+              {language === "es" ? (
+                <>
+                  ¡Ponte en<span> Contacto!</span>
+                </>
+              ) : (
+                <>
+                  Contact <span>Me!</span>
+                </>
+              )}
+            </p>
             <p className="contact-subtitle">
               {language === "es"
                 ? "¿Tienes dudas, curiosidad o quieres charlar sobre algún proyecto? Escríbeme cuando quieras, ¡estaré encantado de ayudarte!"
