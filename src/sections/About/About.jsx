@@ -42,35 +42,7 @@ const About = () => {
     <section className="about-container" id="about">
       <div className="grid-container">
         <div className="contact-card" id="grid-contacto">
-          <Canvas
-            shadows
-            className="image-avatar"
-            style={{ height: "40vh", cursor: isDragging ? "grabbing" : "grab" }}
-            onPointerDown={() => setIsDragging(true)}
-            onPointerUp={() => setIsDragging(false)}
-            onPointerLeave={() => setIsDragging(false)} // Para evitar que quede trabado al salir del Canvas
-          >
-            <ambientLight intensity={2} />
-
-            {/* 🔹 Luz direccional enfocando al portátil */}
-            <directionalLight
-              position={[0, 5, 5]}
-              intensity={.8}
-            />
-
-            <PerspectiveCamera makeDefault position={[0, 2, 5]} fov={45} />
-
-            <Suspense fallback={<CanvasLoader />}>
-              <group scale={1}>
-                <Portatil scale={.6} position={[0, -1, 0]} rotation={[0, 0, 0]} />
-                <OrbitControls
-                  enableRotate
-                  enableZoom={false}
-                  maxPolarAngle={Math.PI / 2}
-                />
-              </group>
-            </Suspense>
-          </Canvas>
+          <img src="/assets/Extras/contacto.png" alt="Contact" className="image"/>
           <div className="text-container">
             <p className="grid-headtext">
               {language === "es"

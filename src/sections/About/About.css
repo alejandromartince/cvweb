@@ -109,16 +109,8 @@ Canvas {
 
 /* Estilo para las imágenes dentro del grid */
 .image {
-  max-width: 100%;
-  border-radius: 8px;
-  object-fit: cover;
-  width: 4rem;
-}
-
-.small-image {
-  width: 7.875rem;
-  height: 7.875rem;
-  object-fit: cover;
+  height: 20rem;
+  object-fit:contain;
   margin: 0 auto;
 }
 
