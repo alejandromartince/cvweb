@@ -60,8 +60,34 @@ export const homeData = {
 export const myProjects = [
   {
     title: { 
-      es: "Mundo Vinilo - Proyecto Final",
-      en: "Mundo Vinilo - Final Project"
+      es: "Toldos Andalucía (En desarrollo)",
+      en: "Toldos Andalucía (In development)"
+    },
+    desc: {
+      es: "Toldos Andalucia es una empresa con más de 25 años de experiencia especializada en la instalación de toldos en Málaga, comprometida en ofrecer soluciones efectivas para proteger tu hogar del sol y las lluvias.",
+      en: "Toldos Andalucia is a company with more than 25 years of experience specializing in installing windows in Malaga, committed to offering effective solutions to protect your home from the sun and rain."
+    },
+    subdesc: {
+      es: "Es un proyecto real que incluye una interfaz moderna y responsiva utilizando React, Three.js, HTML, CSS y JavaScript, con elementos interactivos en 3D para mejorar la experiencia del usuario.",
+      en: "It is a real project that includes a modern and responsive interface using React, Three.js, HTML, CSS and JavaScript, with interactive elements in 3D to improve the user experience."
+    },
+    href: "https://toldosandalucia.alejandromartince.com",
+    texture: "/textures/ToldosAndalucia.mp4",
+    logo: "../assets/Logos/TA.png",
+    // Cambia las rutas de las imágenes
+    spotlight: "/assets/Spotlights/spotlight3.png",  // Cambia aquí
+    tags: [
+      { id: 1, name: "HTML", path: "/assets/Logos/HTML.png" },
+      { id: 2, name: "CSS", path: "/assets/Logos/CSS.png" },
+      { id: 3, name: "JS", path: "/assets/Logos/JS.png" },
+      { id: 4, name: "React", path: "/assets/Logos/React.png" },
+      { id: 5, name: "Three", path: "/assets/Logos/Three.png" },
+    ],
+  },
+  {
+    title: { 
+      es: "Mundo Vinilo",
+      en: "Mundo Vinilo"
     },
     desc: {
       es: "Mundo Vinilo es una plataforma innovadora que revoluciona la forma en que los vinilos son coleccionados y compartidos.",
@@ -72,7 +98,7 @@ export const myProjects = [
       en: "Developed with PHP and MySQL to facilitate content management on the page and optimal scalability."
     },
     href: "https://mundovinilo.alejandromartince.com",
-    texture: "/textures/video.mp4",
+    texture: "/textures/MV.mp4",
     logo: "../assets/Logos/LogoMV.png",
     // Cambia las rutas de las imágenes
     spotlight: "/assets/Spotlights/spotlight2.png",  // Cambia aquí
@@ -86,8 +112,8 @@ export const myProjects = [
   },
   {
     title: { 
-      es: "De Sur A Sur - Tienda de Bolsos y Canastas",
-      en: "De Sur A Sur - Bags and Purses Store"
+      es: "De Sur A Sur",
+      en: "De Sur A Sur"
     },
     desc: {
       es: "De Sur A Sur es una tienda online especializada en el mundo de la moda, ofreciendo una exclusiva selección de bolsos, cestas y canastas.",
@@ -98,7 +124,7 @@ export const myProjects = [
       en: "It was my first project, created with the intention of learning and improving my knowledge and skills in web development."
     },
     href: "https://desurasur.alejandromartince.com",
-    texture: "/textures/video2.mp4",
+    texture: "/textures/SurASur.mp4",
     logo: "../assets/Logos/LogoDSAS.png",
     spotlight: "/assets/Spotlights/spotlight1.png",  // Cambia aquí
     tags: [

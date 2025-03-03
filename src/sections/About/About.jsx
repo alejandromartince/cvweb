@@ -20,7 +20,6 @@ import { SiMysql } from "react-icons/si";
 import CV from "../../components/mostrar_cv";
 import CanvasLoader from "../../components/CanvasLoader";
 import Mundo from "../../components/Mundo";
-import Portatil from "../../components/portatil";
 import "./About.css";
 
 const About = () => {
