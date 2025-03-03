@@ -94,8 +94,8 @@ export const myProjects = [
       en: "Mundo Vinilo is an innovative platform that revolutionizes the way vinyl records are collected and shared."
     },
     subdesc: {
-      es: "Desarrollado con PHP y MySql para facilitar el manejo del contenido de la página y una escalabilidad óptima.",
-      en: "Developed with PHP and MySQL to facilitate content management on the page and optimal scalability."
+      es: "Este fue el proyecto de final de curso, el cual me permitió aplicar los conocimientos adquiridos durante el curso. Fue desarrollado utilizando PHP y MySQL para gestionar eficientemente el contenido del sitio web, garantizando además una escalabilidad óptima para su crecimiento futuro.",
+      en: "This was my final project which allowed me to apply the knowledge gained throughout the course. It was developed using PHP and MySQL to efficiently manage the website content, ensuring optimal scalability for future growth."
     },
     href: "https://mundovinilo.alejandromartince.com",
     texture: "/textures/MV.mp4",
