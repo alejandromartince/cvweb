@@ -3,7 +3,11 @@ import Button from "../../components/Button";
 import { useState, useRef, Suspense } from "react";
 import { Link } from "react-scroll";
 import { Canvas } from "@react-three/fiber";
-import { OrbitControls, PerspectiveCamera } from "@react-three/drei";
+import {
+  Environment,
+  OrbitControls,
+  PerspectiveCamera,
+} from "@react-three/drei";
 import {
   FaReact,
   FaHtml5,
@@ -41,7 +45,11 @@ const About = () => {
     <section className="about-container" id="about">
       <div className="grid-container">
         <div className="contact-card" id="grid-contacto">
-          <img src="/assets/Extras/contacto.png" alt="Contact" className="image"/>
+          <img
+            src="/assets/Extras/contacto.png"
+            alt="Contact"
+            className="image"
+          />
           <div className="text-container">
             <p className="grid-headtext">
               {language === "es"
@@ -112,6 +120,7 @@ const About = () => {
 
               <Suspense fallback={<CanvasLoader />}>
                 <Mundo scale={2} />
+                <Environment preset="sunset" />{" "}
                 <OrbitControls
                   enableRotate
                   autoRotate
